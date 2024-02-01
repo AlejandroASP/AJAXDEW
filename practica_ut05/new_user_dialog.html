@@ -94,7 +94,6 @@
 <form method="post" action=""><button id="form_submit"  type="submit" name="" value="" style="display:none;"></button></form>
 
 <script>
-document.getElementById('new_user').style.display="block";
 document.getElementsByTagName('body')[0].onload = function() {for (i=0; i < inputs.length; i++) inputs[i].value = '';} //clear fields when uploading the page
 
 function close_me(e) { e.target.parentNode.style.display = 'none'; document.getElementById('new_user').style.filter = 'opacity(100%)';} // handle class = dialog window
@@ -211,26 +210,8 @@ document.addEventListener("DOMContentLoaded", () => {
   DOM.newUserButton.addEventListener("click", () => {
     DOM.newUserForm.style.display = "block"; // Muestra el formulario
   });
-  function makeRequest(method, url, data) {
-    console.log(url);
-    
-    return new Promise(function (resolve, reject) {
-      let xhttp = new XMLHttpRequest();
-      xhttp.onreadystatechange =  () => {
-        if (xhttp.readyState == 4 && xhttp.status == 200) {
-          resolve(xhttp.responseText);
-        }
-      };
-      xhttp.onerror=()=> reject(xhttp.status);
-      xhttp.open(method, url, true); //informacion relevante preguntar por que el error no va aqui
-      xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded"); //como se manda 
-      if (method == "POST") {
-        xhttp.send("new_user=" + JSON.stringify(data));
-      } else {
-        xhttp.send();
-      }
-    });
-  }
+
+
   DOM.sendButton.addEventListener("click", () => {
     let newUser = {};
     DOM.inputs.forEach((input) => {

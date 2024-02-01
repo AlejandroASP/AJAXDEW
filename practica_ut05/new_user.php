@@ -16,17 +16,13 @@ $psswrd = gen_psswrd($length = 10);
 
 
 if ($users_data != NULL) {
+  $ctrl = -1;
+  while ($ctrl < 0) {
+  $psswrd = gen_psswrd($length = 10);
+  $ctrl = check_psswrd($psswrd, $users_data);
+  }
 
-
-
-$ctrl = -1;
-
-while ($ctrl < 0) {
-$psswrd = gen_psswrd($length = 10);
-$ctrl = check_psswrd($psswrd, $users_data);
-}
-
-   };
+};
 
 
 $json = json_decode($data);
@@ -61,11 +57,5 @@ if (json_decode($users_data[$i])->psswrd == $psswrd) $ctrl = -1;
   }; 
 
 return $ctrl;
-
   };
-
-
-
 ?> 
-
-
