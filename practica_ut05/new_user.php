@@ -34,7 +34,7 @@ echo $psswrd;
 
 function gen_psswrd($length) {
   $chars =  'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.
-            '0123456789-~!@#$%^&*()_,./<>?;:[]{}\|';
+            '0123456789-~!@#$%^&*_,./<>?;:[]{}\|';
 
   $str = '';
   $max = strlen($chars) - 1;
